@@ -4,43 +4,53 @@ import {googleAPIKey} from './keys'
 import axios from "axios";
 import SearchBar from './SearchBar/SearchBar';
 
+
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            videos: []
+            videos: [],
+            related_videos:[]
         };
     }
 
   
     SearchForVideo = async (search_term) => {
         
-        let response = await axios.get('https://www.googleapis.com/youtube/v3/search?q='+{search_term}+'&key=AIzaSyASgHWeo95jh3pLZ-QrTEq_lx-OZCLXwGQ')
+        let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${search_term}&key=${googleAPIKey}`)
+        console.log(response.data)
         this.setState({
-            songs:response.data
+            videos:response.data.items
+        })
+        
+    }
+    SearchForRealatedVideo = async (videoID) => {
+        
+        let response = await axios.get('https://www.googleapis.com/youtube/v3/search?relatedToVideoId='+{videoID}+'&type=video&key='+{googleAPIKey})
+        console.log(response.data)
+        this.setState({
+            related_videos:response.data.items
         })
         
     }
 
 
+
+
+
     render() {
         return (
+           
             <div>
-<<<<<<< HEAD
-                <h1> TEST </h1>
-                <DisplayVideo videoID={this.state.videos[0].videoId} />
-
                 
-            </div>
-        )
-=======
-            <SearchBar search_term={this.SearchForVideo}/>
-            
+                <SearchBar search_term={this.SearchForVideo}/>
+                {this.state.videos.length > 0?
+                <DisplayVideo videoID = {this.state.videos[0].id.videoId}/>
+                :null}
 
-            <h1> TEST </h1>
-            </div>
+        
+             </div>
         );
->>>>>>> 8375bffd89fcc5be6d0ff1145a8e16004dde0fe6
 
         }
     }
