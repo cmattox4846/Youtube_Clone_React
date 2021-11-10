@@ -26,21 +26,12 @@ class App extends Component {
     render() {
         return (
             <div>
-<<<<<<< HEAD
                 <h1> TEST </h1>
                 <DisplayVideo videoID={this.state.videos[0].videoId} />
-
-                
-            </div>
-        )
-=======
-            <SearchBar search_term={this.SearchForVideo}/>
+                <SearchBar search_term={this.SearchForVideo}/>
             
-
-            <h1> TEST </h1>
             </div>
         );
->>>>>>> 8375bffd89fcc5be6d0ff1145a8e16004dde0fe6
 
         }
     }
