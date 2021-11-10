@@ -10,18 +10,23 @@ class DisplayVideo extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      
         <div>
-            <iframe
+            
+              <iframe
                 id="ytplayer"
                 type="text/html"
                 width="640"
                 height="360"
-                src='https://www.youtube.com/embed/'{props.videoId}
+                title="YouTube Video"
+                src={"https://www.youtube.com/embed/" + this.props.videoID}
                 frameBorder="0"
-            ></iframe>
+            >
+
+            </iframe>
+            
         </div>
-      </React.Fragment>
+      
     );
   }
 }
