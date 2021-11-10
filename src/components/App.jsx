@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import DisplayVideo from './DisplayVideo/DisplayVideo';
+import {googleAPIKey} from './keys'
+
 
 class App extends Component {
     constructor(props) {
@@ -10,7 +13,12 @@ class App extends Component {
 
     render() {
         return (
-            <h1> TEST </h1>
+            <div>
+                <h1> TEST </h1>
+                <DisplayVideo videoID={this.state.videos[0].videoId} />
+
+                
+            </div>
         )
 
     }
