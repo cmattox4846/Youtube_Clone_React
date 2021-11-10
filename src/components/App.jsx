@@ -12,7 +12,7 @@ class App extends Component {
         this.state = {
             videos: [],
             related_videos:[],
-            videoId: ''
+            videoId: 'V65uAHzofbg'
         };
     }
 
@@ -40,6 +40,9 @@ class App extends Component {
 
     selectNewVideo = (videoId) => {
 
+    this.setState({
+        videoId:videoId
+    })
     }
 
 
