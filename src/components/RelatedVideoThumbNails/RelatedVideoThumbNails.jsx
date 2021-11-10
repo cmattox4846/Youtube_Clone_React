@@ -5,7 +5,7 @@ const RelatedVideoThumbNails = (props) => {
     return (
 
         <div>
-            <img src={props.}
+            <img src={props.thumbnails} alt="Thumbnail"/>
         </div>
       );
 }

@@ -21,6 +21,7 @@ handleChange=(event)=>{
 handleSubmit = (event) => {
       event.preventDefault();
       this.props.search_term(this.state.search)
+      
   }
     render() { 
         return (

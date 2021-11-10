@@ -3,6 +3,7 @@ import DisplayVideo from './DisplayVideo/DisplayVideo';
 import {googleAPIKey} from './keys'
 import axios from "axios";
 import SearchBar from './SearchBar/SearchBar';
+import RelatedVideoThumbNails from './RelatedVideoThumbNails/RelatedVideoThumbNails';
 
 
 class App extends Component {
@@ -10,7 +11,8 @@ class App extends Component {
         super(props);
         this.state = {
             videos: [],
-            related_videos:[]
+            related_videos:[],
+            videoId: ''
         };
     }
 
@@ -18,16 +20,17 @@ class App extends Component {
     SearchForVideo = async (search_term) => {
         
         let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${search_term}&key=${googleAPIKey}`)
-        console.log(response.data)
+        
         this.setState({
-            videos:response.data.items
+            videoId: response.data.items[0].id.videoId
         })
+        this.SearchForRealatedVideo(response.data.items[0].id.videoId);
         
     }
-    SearchForRealatedVideo = async (videoID) => {
+    SearchForRealatedVideo = async (videoId) => {
         
-        let response = await axios.get('https://www.googleapis.com/youtube/v3/search?relatedToVideoId='+{videoID}+'&type=video&key='+{googleAPIKey})
-        console.log(response.data)
+        let response = await axios.get( `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&part=snippet&type=video&key=${googleAPIKey}`)
+        console.log(response.data.items)
         this.setState({
             related_videos:response.data.items
         })
@@ -35,7 +38,9 @@ class App extends Component {
     }
 
 
+    selectNewVideo = (videoId) => {
 
+    }
 
 
     render() {
@@ -43,10 +48,17 @@ class App extends Component {
            
             <div>
                 
-                <SearchBar search_term={this.SearchForVideo}/>
-                {this.state.videos.length > 0?
-                <DisplayVideo videoID = {this.state.videos[0].id.videoId}/>
-                :null}
+                <SearchBar search_term={this.SearchForVideo} related_videos={this.SearchForRealatedVideo} />
+                {this.state.videoId &&
+                    <div>
+                        <DisplayVideo videoID = {this.state.videoId}/>
+                        {this.state.related_videos.length > 0 &&
+                            <RelatedVideoThumbNails  thumbnails={this.state.related_videos}/>
+                        }
+                    </div>
+                }
+               
+                
 
         
              </div>
