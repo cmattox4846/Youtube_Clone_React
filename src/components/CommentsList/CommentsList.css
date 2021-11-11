@@ -1,0 +1,17 @@
+th {
+    font-size: larger;
+  }
+  
+table, td, th {
+    border: 3px solid black;
+    text-align: center;
+    padding: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    border-collapse: initial;
+    
+  }
+
+.CommentsList {
+    position: relative;
+    left: 30px;
+}

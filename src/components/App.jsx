@@ -5,6 +5,8 @@ import axios from "axios";
 import SearchBar from './SearchBar/SearchBar';
 import CommentForm from './CommentForm/CommentForm';
 import RelatedVideoThumbNails from './RelatedVideoThumbNails/RelatedVideoThumbNails';
+import CommentsList from './CommentsList/CommentsList';
+import './App.css';
 
 
 
@@ -15,14 +17,15 @@ class App extends Component {
             comments: [],
             videos: [],
             related_videos:[],
-            videoId: 'V65uAHzofbg',
+            videoId: 'mqqft2x_Aa4',
+            filteredComments: [],
             
         };
-
+         
         
     }
 
-  
+    
     SearchForVideo = async (search_term) => {
         
         let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${search_term}&key=${googleAPIKey}`)
@@ -67,7 +70,7 @@ class App extends Component {
     
     
     componentDidMount() {
-        this.getAllComments();
+        this.getAllComments(); 
         
     }
 
@@ -77,11 +80,20 @@ class App extends Component {
         console.log(this.state.comments);
         axios.post(`http://127.0.0.1:8000/comment/`, comment);
         this.setState({
-          comments: [this.state.comments, comment],
+          comments: [...this.state.comments, comment],
         });
       };
     
-      
+    addLike = (id) => {
+        console.log(id)
+      axios.put(`http://127.0.0.1:8000/comment/${id}/like/`);
+      this.getAllComments();
+    };
+  
+    addDislike = (id) => {
+      axios.put(`http://127.0.0.1:8000/comment/${id}/dislike/`);
+      this.getAllComments();
+    };  
 
     
 
@@ -92,7 +104,7 @@ class App extends Component {
             <div>
                 
                 <SearchBar search_term={this.SearchForVideo} related_videos={this.SearchForRealatedVideo} />
-                {this.state.videoId &&
+                {this.state.videoId && 
                     <div>
                         <DisplayVideo videoID = {this.state.videoId}/>
                         {this.state.related_videos.length > 0 &&
@@ -102,7 +114,13 @@ class App extends Component {
                     </div>
                 }
                <CommentForm videoId={this.state.videoId} addComment={this.addComment} />
-               
+               <br></br>
+               <CommentsList
+                comments={this.state.comments} 
+                videoId={this.state.videoId} 
+                addLike={this.addLike}
+                addDislike={this.addDislike}
+                /> 
              </div>
         );
 
