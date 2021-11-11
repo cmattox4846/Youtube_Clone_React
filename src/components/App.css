@@ -1,0 +1,42 @@
+.button1{
+    padding-left: 2;
+    padding-right: 2;
+    margin-left: 2;
+    margin-right: 2;
+}
+
+.navbar{
+    background-color: aquamarine;
+
+}
+
+.sidebar1{
+    background-color: burlywood;
+    text-align: left;
+    border-width: 5;
+    border-color:purple solid;
+    border-style: groove;
+    
+}
+
+.sidebar2{
+    background-color: green;
+    text-align: left; border-width: 5;
+    border-color:purple solid;
+    border-style: groove;
+}
+
+.border1{
+    border-width: 5;
+    border-color:purple solid;
+    border-style: groove;
+
+}
+
+.h1{
+    font-size: larger;
+}
+
+.alignr{
+    text-align: right;
+}
