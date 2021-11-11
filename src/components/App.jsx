@@ -3,17 +3,23 @@ import DisplayVideo from './DisplayVideo/DisplayVideo';
 import {googleAPIKey} from './keys'
 import axios from "axios";
 import SearchBar from './SearchBar/SearchBar';
+import CommentForm from './CommentForm/CommentForm';
 import RelatedVideoThumbNails from './RelatedVideoThumbNails/RelatedVideoThumbNails';
+
 
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            comments: [],
             videos: [],
             related_videos:[],
-            videoId: 'V65uAHzofbg'
+            videoId: 'V65uAHzofbg',
+            
         };
+
+        
     }
 
   
@@ -48,6 +54,40 @@ class App extends Component {
         })
     }
 
+    async getAllComments(e) {
+        
+        const {videoId} = this.state
+        await axios.get(`http://127.0.0.1:8000/comment/`).then((response) =>{
+            
+            const comments = response.data.filter(comment => comment.video_ID === videoId)
+          this.setState({
+            comments: comments,
+            
+          })}
+        );
+      }
+
+    
+    
+    componentDidMount() {
+        this.getAllComments();
+        
+    }
+
+
+    addComment = (comment) => {
+        console.log(comment);
+        console.log(this.state.comments);
+        axios.post(`http://127.0.0.1:8000/comment/`, comment);
+        this.setState({
+          comments: [this.state.comments, comment],
+        });
+      };
+    
+      
+
+    
+
 
     render() {
         return (
@@ -61,12 +101,11 @@ class App extends Component {
                         {this.state.related_videos.length > 0 &&
                             <RelatedVideoThumbNails  thumbnails={this.state.related_videos} setVideoId={this.setVideoId} />
                         }
+                        
                     </div>
                 }
+               <CommentForm videoId={this.state.videoId} addComment={this.addComment} />
                
-                
-
-        
              </div>
         );
 
