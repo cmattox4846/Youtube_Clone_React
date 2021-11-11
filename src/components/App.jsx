@@ -7,14 +7,19 @@ import CommentForm from './CommentForm/CommentForm';
 import RelatedVideoThumbNails from './RelatedVideoThumbNails/RelatedVideoThumbNails';
 
 
+
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            comments: [],
             videos: [],
             related_videos:[],
-            videoId: 'VPVzx1ZOVuw'
+            videoId: 'V65uAHzofbg',
+            
         };
+
+        
     }
 
   
@@ -41,7 +46,44 @@ class App extends Component {
 
     selectNewVideo = (videoId) => {
 
+    this.setState({
+        videoId:videoId
+    })
     }
+
+    async getAllComments(e) {
+        
+        const {videoId} = this.state
+        await axios.get(`http://127.0.0.1:8000/comment/`).then((response) =>{
+            
+            const comments = response.data.filter(comment => comment.video_ID === videoId)
+          this.setState({
+            comments: comments,
+            
+          })}
+        );
+      }
+
+    
+    
+    componentDidMount() {
+        this.getAllComments();
+        
+    }
+
+
+    addComment = (comment) => {
+        console.log(comment);
+        console.log(this.state.comments);
+        axios.post(`http://127.0.0.1:8000/comment/`, comment);
+        this.setState({
+          comments: [this.state.comments, comment],
+        });
+      };
+    
+      
+
+    
 
 
     render() {
@@ -59,10 +101,8 @@ class App extends Component {
                         
                     </div>
                 }
-               <CommentForm />
-                
-
-        
+               <CommentForm videoId={this.state.videoId} addComment={this.addComment} />
+               
              </div>
         );
 

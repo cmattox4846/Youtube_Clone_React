@@ -22,7 +22,7 @@ class CommentForm extends Component {
       handleSubmit = (event) => {
         event.preventDefault();
         const comment = {
-          videoId: this.props.videoId,
+          video_ID: this.props.videoId,
           comment: this.state.comment,
           likes: 0,
           dislikes: 0,
@@ -30,7 +30,7 @@ class CommentForm extends Component {
         this.props.addComment(comment);
         this.setState(
           {
-            comment: this.state.comment,
+            comment: '',
           },
         );
       };
@@ -44,7 +44,7 @@ class CommentForm extends Component {
                   id="comment_form text"
                   type="text"
                   name="comment"
-                  placeholder="Write a comment on this video"
+                  placeholder="Write a Comment"
                   onChange={this.handleChange}
                   value={this.state.comment}
                 />
