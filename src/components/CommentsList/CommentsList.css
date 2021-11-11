@@ -1,5 +1,6 @@
 th {
     font-size: larger;
+    background-color: gray;
   }
   
 table, td, th {
@@ -15,4 +16,5 @@ table, td, th {
     position: relative;
     left: 800px;
     bottom: 400px;
+    
 }

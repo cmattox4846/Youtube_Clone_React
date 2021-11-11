@@ -17,11 +17,12 @@ class App extends Component {
             comments: [],
             videos: [],
             related_videos:[],
-            videoId: 'mqqft2x_Aa4',
+            videoId: 'kshM6NvKutw',
             filteredComments: [],
+            replies: [],
             
         };
-         
+        this.getAllReplies = this.getAllReplies.bind(this); 
         
     }
 
@@ -57,7 +58,7 @@ class App extends Component {
         })
     }
 
-    async getAllComments(e) {
+    async getAllComments() {
         
         const {videoId} = this.state
         await axios.get(`http://127.0.0.1:8000/comment/`).then((response) =>{
@@ -74,6 +75,7 @@ class App extends Component {
     
     componentDidMount() {
         this.getAllComments(); 
+        this.getAllReplies();
         
     }
 
@@ -98,13 +100,20 @@ class App extends Component {
       this.getAllComments();
     };  
 
+    async getAllReplies(e) {
+        await axios.get(`http://127.0.0.1:8000/reply/`).then((response) => {
+          this.setState({
+           replies: response.data,
+          })}
+        );
+      } 
     
 
 
     render() {
         return (
            
-            <div>
+            <div className="render">
                 
                 <SearchBar search_term={this.SearchForVideo} related_videos={this.SearchForRealatedVideo} />
                 {this.state.videoId && 
@@ -123,6 +132,8 @@ class App extends Component {
                 videoId={this.state.videoId} 
                 addLike={this.addLike}
                 addDislike={this.addDislike}
+                replies={this.state.replies}
+                getAllReplies={this.getAllReplies}
                 /> 
              </div>
         );
