@@ -30,19 +30,22 @@ class App extends Component {
     SearchForRealatedVideo = async (videoId) => {
         
         let response = await axios.get( `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&part=snippet&type=video&key=${googleAPIKey}`)
-        console.log(response.data.items)
+        console.log(videoId)
+        console.log(response.data.items.snippet)
         this.setState({
             related_videos:response.data.items
         })
         
     }
 
+   
 
-    selectNewVideo = (videoId) => {
 
-    this.setState({
-        videoId:videoId
-    })
+    setVideoId = (videoId) => {
+
+        this.setState({
+            videoId:videoId
+        })
     }
 
 
@@ -56,7 +59,7 @@ class App extends Component {
                     <div>
                         <DisplayVideo videoID = {this.state.videoId}/>
                         {this.state.related_videos.length > 0 &&
-                            <RelatedVideoThumbNails  thumbnails={this.state.related_videos}/>
+                            <RelatedVideoThumbNails  thumbnails={this.state.related_videos} setVideoId={this.setVideoId} />
                         }
                     </div>
                 }
