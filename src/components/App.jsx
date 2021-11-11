@@ -4,7 +4,8 @@ import {googleAPIKey} from './keys'
 import axios from "axios";
 import SearchBar from './SearchBar/SearchBar';
 import CommentForm from './CommentForm/CommentForm';
-import RelatedVideoThumbNails from './RelatedVideoThumbNails/RelatedVideoThumbNails';
+
+import RelatedVideoThumbnails from './RelatedVideoThumbNails/RelatedVideoThumbNails';
 
 
 
@@ -36,8 +37,8 @@ class App extends Component {
     SearchForRealatedVideo = async (videoId) => {
         
         let response = await axios.get( `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&part=snippet&type=video&key=${googleAPIKey}`)
-        console.log(videoId)
-        console.log(response.data.items.snippet)
+        console.log(videoId +'videoId')
+        console.log(response.data.items.snippet +"this is the snippet")
         this.setState({
             related_videos:response.data.items
         })
@@ -99,7 +100,7 @@ class App extends Component {
                     <div>
                         <DisplayVideo videoID = {this.state.videoId}/>
                         {this.state.related_videos.length > 0 &&
-                            <RelatedVideoThumbNails  thumbnails={this.state.related_videos} setVideoId={this.setVideoId} />
+                            <RelatedVideoThumbnails  related_videos={this.state.related_videos} setVideoId={this.setVideoId} />
                         }
                         
                     </div>
