@@ -11,10 +11,10 @@
 }
 
 .sidebar1{
-    background-color: burlywood;
+    background-color: rgb(236, 12, 12);
     text-align: left;
     border-width: 5;
-    border-color:purple solid;
+    border-color:black solid;
     border-style: groove;
     
 }
@@ -33,10 +33,3 @@
 
 }
 
-.h1{
-    font-size: larger;
-}
-
-.alignr{
-    text-align: right;
-}

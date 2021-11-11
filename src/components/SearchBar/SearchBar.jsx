@@ -25,7 +25,7 @@ handleSubmit = (event) => {
   }
     render() { 
         return (
-            <div className="ms-2 me-2">
+            <div className=" ms-2 me-2">
             <form onSubmit={this.handleSubmit}>
 
                     
@@ -33,7 +33,7 @@ handleSubmit = (event) => {
                 <input className=" ms-2 me-2" name='search'  onChange={this.handleChange} value={this.state.search}/>
                 
                 
-                <button type="submit"className="btn btn-link button1 ms-2 me-2">Search For Video</button>
+                <button type="submit"className="btn btn-primary btn-sm ms-2 me-2">Search For Video</button>
 
 
             </form>

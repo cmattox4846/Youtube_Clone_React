@@ -69,6 +69,7 @@ class App extends Component {
         })
         console.log(this.state.videoInfo)
        this.SearchForRealatedVideo(response.data.items[0].id.videoId);
+      this.getAllComments(response.data.items[0].id.videoId)
         
     }
     SearchForRealatedVideo = async (videoId) => {
@@ -92,9 +93,9 @@ class App extends Component {
         })
     }
 
-    async getAllComments(e) {
+    getAllComments = async (videoId) => {
         
-        const {videoId} = this.state
+        // const {videoId} = this.state
         await axios.get(`http://127.0.0.1:8000/comment/`).then((response) =>{
             
             const comments = response.data.filter(comment => comment.video_ID === videoId)
@@ -138,7 +139,7 @@ class App extends Component {
 
     render() {
         return (
-           
+           <div>
             
             <div className="container-fluid " >
                 <nav class="navbar navbar-expand-lg  sidebar1">
@@ -164,9 +165,15 @@ class App extends Component {
                     <div className='row '>
                         <div className="col   sidebar1 w-auto p-3" > 
                           
-                                <CommentForm videoId={this.state.videoId} addComment={this.addComment} />
-                                <br></br>
+                               Comments Sections
+                               <br/><br/>
+                               <CommentForm videoId={this.state.videoId} addComment={this.addComment} />
+                                <br/> this is where the break is
                                 <CommentsList comments={this.state.comments} videoId={this.state.videoId} addLike={this.addLike} addDislike={this.addDislike}/>
+                               bja;sjdhf;jl;ashdf'l
+                               ;hal;shdf;jjhasdj;jfh
+                               kj;SHDAFJHASDAKJSDHFAKSGDFJK
+                               KJKASDHJFAKLSGJLDF
                              
                         </div>
                     
@@ -192,8 +199,16 @@ class App extends Component {
                                 </div>  }
                     </div>
                 </div>
-                    </div>
+                    </div></div>
+                <div className='container-fluid w-200 '>
+                    
+                        <div>
+                                     <CommentForm videoId={this.state.videoId} addComment={this.addComment} />
+                                    <br></br>
+                                    <CommentsList comments={this.state.comments} videoId={this.state.videoId} addLike={this.addLike} addDislike={this.addDislike}/>
+                        </div>
                 </div>
+        </div>     
                  
                 
                 
