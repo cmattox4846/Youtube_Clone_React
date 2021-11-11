@@ -13,5 +13,6 @@ table, td, th {
 
 .CommentsList {
     position: relative;
-    left: 30px;
+    left: 800px;
+    bottom: 400px;
 }
