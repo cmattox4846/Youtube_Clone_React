@@ -13,7 +13,9 @@ class DisplayVideo extends Component {
       
         <div>
             <h1>{this.props.video.snippet.title}</h1>
+            {console.log(this.props.video.snippet.title)}
             <h4>{this.props.video.snippet.description}</h4>
+            {console.log(this.props.video.snippet.description)}
               <iframe
                 id="ytplayer"
                 type="text/html"

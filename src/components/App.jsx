@@ -4,8 +4,8 @@ import {googleAPIKey} from './keys'
 import axios from "axios";
 import SearchBar from './SearchBar/SearchBar';
 import CommentForm from './CommentForm/CommentForm';
-import "./App.css"
-
+import CommentsList from './CommentsList/CommentsList';
+import './App.css';
 import RelatedVideoThumbnails from './RelatedVideoThumbNails/RelatedVideoThumbNails';
 
 
@@ -48,17 +48,17 @@ class App extends Component {
                     "liveBroadcastContent": "none",
                     "publishTime": "2019-01-15T19:37:23Z"
                 }
-            },
-            ],
+            }],
             related_videos:[],
-            videoId: 'Kp3-pXoDoIw',
+            videoId: 'Kp3-pXoDoI',
+            filteredComments: [],
             
         };
-
+         
         
     }
 
-  
+    
     SearchForVideo = async (search_term) => {
         
         let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${search_term}&part=snippet&key=${googleAPIKey}`)
@@ -108,7 +108,7 @@ class App extends Component {
     
     
     componentDidMount() {
-        this.getAllComments();
+        this.getAllComments(); 
         
     }
 
@@ -118,11 +118,20 @@ class App extends Component {
         console.log(this.state.comments);
         axios.post(`http://127.0.0.1:8000/comment/`, comment);
         this.setState({
-          comments: [this.state.comments, comment],
+          comments: [...this.state.comments, comment],
         });
       };
     
-      
+    addLike = (id) => {
+        console.log(id)
+      axios.put(`http://127.0.0.1:8000/comment/${id}/like/`);
+      this.getAllComments();
+    };
+  
+    addDislike = (id) => {
+      axios.put(`http://127.0.0.1:8000/comment/${id}/dislike/`);
+      this.getAllComments();
+    };  
 
     
 
@@ -131,7 +140,7 @@ class App extends Component {
         return (
            
             
-                <div className="container-fluid " >
+            <div className="container-fluid " >
                 <nav class="navbar navbar-expand-lg  sidebar1">
                     <div class=" container  bd-highlight">
                     <div className="row ">
@@ -151,18 +160,44 @@ class App extends Component {
                         </div>
                 </nav>
                 
-                {this.state.videoId  &&
-                    <div>
-                        <DisplayVideo videoID = {this.state.videoId} video={this.state.videoInfo[0]}/>
-                        {this.state.related_videos.length > 0 &&
-                            <RelatedVideoThumbnails  related_videos={this.state.related_videos} setVideoId={this.setVideoId} />
-                        }
+                <div className='container-fluid w-200 '>
+                    <div className='row '>
+                        <div className="col   sidebar1 w-auto p-3" > 
+                          
+                                <CommentForm videoId={this.state.videoId} addComment={this.addComment} />
+                                <br></br>
+                                <CommentsList comments={this.state.comments} videoId={this.state.videoId} addLike={this.addLike} addDislike={this.addDislike}/>
+                             
+                        </div>
+                    
+                        <div className="col-md-7 border1"> 
+                            {this.state.videoId && 
+                                <div>
+                                <DisplayVideo videoID = {this.state.videoId} video={this.state.videoInfo[0]}/>
+                               
+                                  
+                                 </div>
+                            }  
+                        </div>
                         
+                        <div className="col sidebar1">
+                           {this.state.videoId && 
+                                <div className=" align=center">
+                                    {this.state.related_videos.length > 0 &&
+                                    
+                                    
+                                        <RelatedVideoThumbnails  related_videos={this.state.related_videos} setVideoId={this.setVideoId} />
+                                    
+                                    }   
+                                </div>  }
                     </div>
-                }
-               <CommentForm videoId={this.state.videoId} addComment={this.addComment} />
-               
-             </div>
+                </div>
+                    </div>
+                </div>
+                 
+                
+                
+            
         );
 
         }
