@@ -59,7 +59,7 @@ class CommentForm extends Component {
                   onChange={this.handleChange}
                   value={this.state.comment}
                 />
-                <button type="submit">Submit Comment</button>
+                <button type="submit" className="btn btn-primary">Submit Comment</button>
               </form>
             </div>
           </React.Fragment>

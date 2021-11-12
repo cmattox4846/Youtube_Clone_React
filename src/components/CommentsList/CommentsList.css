@@ -3,7 +3,7 @@ th {
     background-color: gray;
   }
   
-table, td, th {
+table, td, th, tr, thead {
     border: 3px solid black;
     text-align: center;
     padding: 5px;
@@ -11,6 +11,13 @@ table, td, th {
     border-collapse: initial;
     
   }
+
+/* .replies {
+    position: relative;
+    left: 50px;
+} */
+
+
 
 /* .CommentsList {
     position: relative;

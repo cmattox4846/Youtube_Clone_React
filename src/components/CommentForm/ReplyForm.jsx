@@ -62,7 +62,7 @@ class ReplyForm extends Component {
                   onChange={this.handleChange}
                   value={this.state.reply}
                 />
-                <button type="submit">Submit Reply</button>
+                <button type="submit" className="btn btn-primary">Submit Reply</button>
               </form>
             </div>
           </React.Fragment>

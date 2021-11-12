@@ -52,7 +52,11 @@ class App extends Component {
         },
       
       related_videos: [],
+<<<<<<< HEAD
       videoId:"Kp3-pXoDoIw",
+=======
+      videoId: 'V65uAHzofbg',
+>>>>>>> 6991ceab848c04f9f9dcc863c23707cdf04f741f
       filteredComments: [],
       replies: [],
     };
@@ -191,9 +195,12 @@ class App extends Component {
           </nav>
           <div className="container-fluid w-200">
             <div className="row">
+<<<<<<< HEAD
               <div className="col sidebar1 w-auto p-3">
                
               </div>
+=======
+>>>>>>> 6991ceab848c04f9f9dcc863c23707cdf04f741f
               <div className="col-md-7 border1">
                 {this.state.videoId.length > 0  && (
                   <div>
