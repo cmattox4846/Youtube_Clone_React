@@ -22,13 +22,21 @@ class CommentForm extends Component {
     
       handleSubmit = (event) => {
         event.preventDefault();
-        const comment = {
+
+        const { comment } = this.state
+     
+        if (!comment || (comment && comment.trim() === '')) {
+            alert('Cannot submit an empty comment.')
+            return false
+        }
+
+        const newComment = {
           video_ID: this.props.videoId,
-          comment: this.state.comment,
+          comment: comment,
           likes: 0,
           dislikes: 0,
         };
-        this.props.addComment(comment);
+        this.props.addComment(newComment);
         this.setState(
           {
             comment: '',

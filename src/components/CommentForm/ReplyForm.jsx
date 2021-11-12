@@ -21,12 +21,18 @@ class ReplyForm extends Component {
     
       handleSubmit = (event) => {
         event.preventDefault();
-        const reply = {
+        const { reply } = this.state
+
+        if (!reply || (reply && reply.trim() === '')) {
+            alert('Cannot submit an empty reply.')
+            return false
+        }
+        const newReply = {
           comment: this.props.id,
-          comment_reply: this.state.reply,
+          comment_reply: reply,
           
         };
-        this.addReply(reply);
+        this.addReply(newReply);
         this.setState(
           {
             reply: '',
