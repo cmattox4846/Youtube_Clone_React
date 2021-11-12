@@ -3,3 +3,17 @@
     left: 800px;
     bottom: 400px;
 } */
+
+.inputfield
+ {  
+  
+ top:30px;  
+ font-size: 20px!important; 
+ font-family:'Lato', sans-serif !important;
+ font-weight: 400;
+ color: black ; 
+ width:75%;  
+ height:200px !important
+ 
+  
+ }

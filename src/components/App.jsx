@@ -52,11 +52,7 @@ class App extends Component {
         },
       
       related_videos: [],
-<<<<<<< HEAD
       videoId:"Kp3-pXoDoIw",
-=======
-      videoId: 'V65uAHzofbg',
->>>>>>> 6991ceab848c04f9f9dcc863c23707cdf04f741f
       filteredComments: [],
       replies: [],
     };
@@ -98,21 +94,7 @@ class App extends Component {
       this.setState({
         videoInfo:video
       })
-    // let index
-    // for (let i=0; i < this.state.videoInfo.length; i++){   
     
-    //     if(videoID === this.state.related_videos[i].id.videoId)
-    //         {
-    //             index = this.state.related_videos.item[i]
-    //         }
-    // }
-     
-    //  console.log(index +" this is the item########")
-    // this.setState({
-    //   videoId: videoID,
-    //   videoIndex:index
-
-    // });
   };
 
   async getAllComments() {
@@ -195,12 +177,12 @@ class App extends Component {
           </nav>
           <div className="container-fluid w-200">
             <div className="row">
-<<<<<<< HEAD
               <div className="col sidebar1 w-auto p-3">
-               
+              <CommentForm
+                videoId={this.state.videoId}
+                addComment={this.addComment}
+              />
               </div>
-=======
->>>>>>> 6991ceab848c04f9f9dcc863c23707cdf04f741f
               <div className="col-md-7 border1">
                 {this.state.videoId.length > 0  && (
                   <div>
@@ -223,10 +205,7 @@ class App extends Component {
                   </div>
                 )}
               </div>
-              <CommentForm
-                videoId={this.state.videoId}
-                addComment={this.addComment}
-              />
+              
               <br></br>
               <CommentsList
                 comments={this.state.comments}

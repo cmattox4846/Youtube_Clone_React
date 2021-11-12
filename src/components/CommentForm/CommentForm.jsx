@@ -51,7 +51,8 @@ class CommentForm extends Component {
           <React.Fragment>
             <div className="CommentButton" >
               <form onSubmit={this.handleSubmit}>
-                <input
+                <input 
+                  className="inputfield"
                   id="comment_form text"
                   type="text"
                   name="comment"
@@ -59,7 +60,8 @@ class CommentForm extends Component {
                   onChange={this.handleChange}
                   value={this.state.comment}
                 />
-                <button type="submit" className="btn btn-primary">Submit Comment</button>
+
+                <button type="submit" className="btn btn-primary mt-2 ms-2 me-2 ">Submit Comment</button>
               </form>
             </div>
           </React.Fragment>
