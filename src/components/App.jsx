@@ -50,7 +50,7 @@ class App extends Component {
                 }
             }],
             related_videos:[],
-            videoId: 'Kp3-pXoDoI',
+            videoId: 'Kp3-pXoDoIw',
             filteredComments: [],
             
         };
@@ -68,8 +68,8 @@ class App extends Component {
             videoInfo:response.data.items
         })
         console.log(this.state.videoInfo)
-       this.SearchForRealatedVideo(response.data.items[0].id.videoId);
-      this.getAllComments(response.data.items[0].id.videoId)
+        this.SearchForRealatedVideo(response.data.items[0].id.videoId);
+        this.getAllComments(response.data.items[0].id.videoId)
         
     }
     SearchForRealatedVideo = async (videoId) => {
@@ -145,7 +145,7 @@ class App extends Component {
                 <nav class="navbar navbar-expand-lg  sidebar1">
                     <div class=" container  bd-highlight">
                     <div className="row ">
-                        <span class="navbar-brand mb-0 h1">Youtube Clone</span>
+                        <span class="navbar-brand align=center mb-0 h1">Youtube Clone</span>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                             </button>
@@ -165,16 +165,6 @@ class App extends Component {
                     <div className='row '>
                         <div className="col   sidebar1 w-auto p-3" > 
                           
-                               Comments Sections
-                               <br/><br/>
-                               <CommentForm videoId={this.state.videoId} addComment={this.addComment} />
-                                <br/> this is where the break is
-                                <CommentsList comments={this.state.comments} videoId={this.state.videoId} addLike={this.addLike} addDislike={this.addDislike}/>
-                               bja;sjdhf;jl;ashdf'l
-                               ;hal;shdf;jjhasdj;jfh
-                               kj;SHDAFJHASDAKJSDHFAKSGDFJK
-                               KJKASDHJFAKLSGJLDF
-                             
                         </div>
                     
                         <div className="col-md-7 border1"> 
