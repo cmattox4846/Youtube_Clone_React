@@ -1,17 +1,16 @@
 import React, { Component } from "react";
-import './CommentForm.css'
+import axios from "axios";
 
-class CommentForm extends Component {
+class ReplyForm extends Component {
     constructor(props) {
       super(props);
       this.state = {
-          videoId: this.props.videoId,
-          comment: "",
-          likes: 0,
-          dislikes: 0,
+          reply: "",
+          
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.addReply = this.addReply.bind(this);
       }
     
       handleChange = (event) => {
@@ -22,44 +21,48 @@ class CommentForm extends Component {
     
       handleSubmit = (event) => {
         event.preventDefault();
+        const { reply } = this.state
 
-        const { comment } = this.state
-     
-        if (!comment || (comment && comment.trim() === '')) {
-            alert('Cannot submit an empty comment.')
+        if (!reply || (reply && reply.trim() === '')) {
+            alert('Cannot submit an empty reply.')
             return false
         }
-
-        const newComment = {
-          video_ID: this.props.videoId,
-          comment: comment,
-          likes: 0,
-          dislikes: 0,
+        const newReply = {
+          comment: this.props.id,
+          comment_reply: reply,
+          
         };
-        this.props.addComment(newComment);
+        this.addReply(newReply);
         this.setState(
           {
-            comment: '',
+            reply: '',
           },
         );
       };
-
-      
     
+      addReply = (comment) => {
+        axios.post(`http://127.0.0.1:8000/reply/`, comment);
+        this.setState({
+          reply: [...this.state.reply, comment],
+        });
+      
+        this.props.getAllReplies()
+      };
+
       render() {
         return (
           <React.Fragment>
-            <div className="CommentButton" >
+            <div>
               <form onSubmit={this.handleSubmit}>
                 <input
                   id="comment_form text"
                   type="text"
-                  name="comment"
-                  placeholder="Write a Comment"
+                  name="reply"
+                  placeholder="Write a reply"
                   onChange={this.handleChange}
-                  value={this.state.comment}
+                  value={this.state.reply}
                 />
-                <button type="submit">Submit Comment</button>
+                <button type="submit">Submit Reply</button>
               </form>
             </div>
           </React.Fragment>
@@ -68,4 +71,4 @@ class CommentForm extends Component {
     }
 
 
-export default CommentForm;
+export default ReplyForm;

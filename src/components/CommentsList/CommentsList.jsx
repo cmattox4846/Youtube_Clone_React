@@ -1,5 +1,6 @@
 import React, {  } from "react";
 import './CommentsList.css'
+import ReplyForm from "../CommentForm/ReplyForm";
 
 
 
@@ -13,8 +14,10 @@ const CommentsList = (props) => {
             <thead>
               <tr>
                 <th> Comments </th>
+                <th> Replies </th>
                 <th> Likes </th>
-                <th >Dislikes </th>
+                <th> Dislikes </th>
+                
               </tr>
             </thead>
 
@@ -22,6 +25,20 @@ const CommentsList = (props) => {
               {props.comments.map((comment) => (
                 <tr key={comment.id}>
                   <td>{comment.comment}</td>
+                        <tr>
+                            {props.replies.map((reply, index) => {
+                                if(comment.id === reply.comment){
+                            return(
+                                <tr key={`${comment.id}-${index}`}>
+                                    <td>{reply.comment_reply}</td>
+                                </tr>
+                                )
+                             } else {
+                            return null
+                            }
+                            })}
+                        </tr>
+            
                   <td>
                     {comment.likes} <br></br>
                     <button type="button" onClick={() => props.addLike(comment.id)}> Like </button>
@@ -30,7 +47,13 @@ const CommentsList = (props) => {
                     {comment.dislikes} <br></br>
                     <button type="button" onClick={() => props.addDislike(comment.id)} > Dislike </button>
                   </td>
+                  <td>
+                      <ReplyForm id={comment.id} getAllReplies={props.getAllReplies} />
+                  </td>
+                
                 </tr>
+            
+                
               ))}
             </tbody>
           </table>
