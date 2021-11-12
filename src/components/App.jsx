@@ -51,7 +51,7 @@ class App extends Component {
         },
       ],
       related_videos: [],
-
+      videoId: 'V65uAHzofbg',
       filteredComments: [],
       replies: [],
     };
@@ -171,26 +171,6 @@ class App extends Component {
           </nav>
           <div className="container-fluid w-200">
             <div className="row">
-              <div className="col sidebar1 w-auto p-3">
-                Comments Sections
-                <br />
-                <br />
-                <CommentForm
-                  videoId={this.state.videoId}
-                  addComment={this.addComment}
-                />
-                <br /> this is where the break is
-                <CommentsList
-                  comments={this.state.comments}
-                  videoId={this.state.videoId}
-                  addLike={this.addLike}
-                  addDislike={this.addDislike}
-                  replies={this.state.replies}
-                  getAllReplies={this.getAllReplies}
-                />
-                bja;sjdhf;jl;ashdf'l ;hal;shdf;jjhasdj;jfh
-                kj;SHDAFJHASDAKJSDHFAKSGDFJK KJKASDHJFAKLSGJLDF
-              </div>
               <div className="col-md-7 border1">
                 {this.state.videoId && (
                   <div>
