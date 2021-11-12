@@ -13,8 +13,11 @@ const RelatedVideoThumbNails = (props) => {
             
             <h5> Recommended Videos</h5>
             
-             {props.related_videos.map(video =><div onClick={()=>props.setVideoId(video.id.videoId)} className="align-bottom">{console.log(video)}{video.snippet !== undefined ?
-          <img src={video.snippet.thumbnails.default.url} alt="images"/>: null }</div>)}
+             {props.related_videos.map(video =><div onClick={()=>props.setVideoId(video)} className="align-bottom">{console.log(video)}{video.snippet !== undefined ?
+                 <div><img src={video.snippet.thumbnails.default.url} alt="images"/><div>{video.snippet.title}</div></div>: null }</div>)}
+
+            
+
             
             
         </div>

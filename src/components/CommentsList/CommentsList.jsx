@@ -40,12 +40,12 @@ const CommentsList = (props) => {
                         </tr>
             
                   <td>
-                    {comment.likes} <br></br>
-                    <button type="button" onClick={() => props.addLike(comment.id)}> Like </button>
+                    {comment.likes}
+                    <button type="button" className="btn btn-link" onClick={() => props.addLike(comment.id)}> Like </button>
                   </td>
                   <td>
-                    {comment.dislikes} <br></br>
-                    <button type="button" onClick={() => props.addDislike(comment.id)} > Dislike </button>
+                    {comment.dislikes}
+                    <button type="button" className="btn btn-link" onClick={() => props.addDislike(comment.id)} > Dislike </button>
                   </td>
                   <td>
                       <ReplyForm id={comment.id} getAllReplies={props.getAllReplies} />

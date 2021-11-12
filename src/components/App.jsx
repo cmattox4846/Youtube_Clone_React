@@ -13,7 +13,8 @@ class App extends Component {
     super(props);
     this.state = {
       comments: [],
-      videoInfo: [
+      videoIndex: 0,
+      videoInfo: 
         {
           kind: "youtube#searchResult",
           etag: "Sl5BVy1g0I5gFwLVuJDwRS_8RrM",
@@ -49,9 +50,9 @@ class App extends Component {
             publishTime: "2019-01-15T19:37:23Z",
           },
         },
-      ],
+      
       related_videos: [],
-
+      videoId:"Kp3-pXoDoIw",
       filteredComments: [],
       replies: [],
     };
@@ -67,9 +68,9 @@ class App extends Component {
 
     this.setState({
       videoId: response.data.items[0].id.videoId,
-      videoInfo: response.data.items,
+      videoInfo: response.data.items[0],
     });
-    console.log(this.state.videoInfo);
+    
     this.SearchForRealatedVideo(response.data.items[0].id.videoId);
     this.getAllComments(response.data.items[0].id.videoId);
   };
@@ -79,16 +80,35 @@ class App extends Component {
       `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&part=snippet&type=video&key=${googleAPIKey}`
     );
     console.log(videoId + " videoId");
-    console.log(response.data.items.snippet + " this is the snippet");
+    console.log(response.data.items + " ****** This in related videos");
     this.setState({
       related_videos: response.data.items,
     });
   };
 
-  setVideoId = (videoId) => {
-    this.setState({
-      videoId: videoId,
-    });
+  
+
+
+  setVideo = (video) => {
+      console.log(video)
+      this.setState({
+        videoInfo:video
+      })
+    // let index
+    // for (let i=0; i < this.state.videoInfo.length; i++){   
+    
+    //     if(videoID === this.state.related_videos[i].id.videoId)
+    //         {
+    //             index = this.state.related_videos.item[i]
+    //         }
+    // }
+     
+    //  console.log(index +" this is the item########")
+    // this.setState({
+    //   videoId: videoID,
+    //   videoIndex:index
+
+    // });
   };
 
   async getAllComments() {
@@ -101,8 +121,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getAllComments();
-    this.getAllReplies();
+    // this.getAllComments();
+    // this.getAllReplies();
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -172,31 +192,14 @@ class App extends Component {
           <div className="container-fluid w-200">
             <div className="row">
               <div className="col sidebar1 w-auto p-3">
-                Comments Sections
-                <br />
-                <br />
-                <CommentForm
-                  videoId={this.state.videoId}
-                  addComment={this.addComment}
-                />
-                <br /> this is where the break is
-                <CommentsList
-                  comments={this.state.comments}
-                  videoId={this.state.videoId}
-                  addLike={this.addLike}
-                  addDislike={this.addDislike}
-                  replies={this.state.replies}
-                  getAllReplies={this.getAllReplies}
-                />
-                bja;sjdhf;jl;ashdf'l ;hal;shdf;jjhasdj;jfh
-                kj;SHDAFJHASDAKJSDHFAKSGDFJK KJKASDHJFAKLSGJLDF
+               
               </div>
               <div className="col-md-7 border1">
-                {this.state.videoId && (
+                {this.state.videoId.length > 0  && (
                   <div>
                     <DisplayVideo
-                      videoID={this.state.videoId}
-                      video={this.state.videoInfo[0]}
+                     
+                      video={this.state.videoInfo}
                     />
                   </div>
                 )}
@@ -207,7 +210,7 @@ class App extends Component {
                     {this.state.related_videos.length > 0 && (
                       <RelatedVideoThumbnails
                         related_videos={this.state.related_videos}
-                        setVideoId={this.setVideoId}
+                        setVideoId={this.setVideo}
                       />
                     )}
                   </div>

@@ -13,8 +13,10 @@ class DisplayVideo extends Component {
       
         <div>
             <h1>{this.props.video.snippet.title}</h1>
-            {console.log(this.props.video.snippet.title)}
+            {console.log('this is the title')}
+            {console.log(this.props.video.snippet.title)} 
             <h4>{this.props.video.snippet.description}</h4>
+            {console.log('this is the description')}
             {console.log(this.props.video.snippet.description)}
               <iframe
                 id="ytplayer"
@@ -22,7 +24,7 @@ class DisplayVideo extends Component {
                 width="640"
                 height="360"
                 title="YouTube Video"
-                src={"https://www.youtube.com/embed/" + this.props.videoID}
+                src={"https://www.youtube.com/embed/" + this.props.video.id.videoId}
                 frameBorder="0"
             >
 
