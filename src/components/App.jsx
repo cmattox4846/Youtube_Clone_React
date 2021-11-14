@@ -52,7 +52,7 @@ class App extends Component {
         },
       
       related_videos: [],
-      videoId:"Kp3-pXoDoIw",
+      //videoId:"Kp3-pXoDoIw",
       filteredComments: [],
       replies: [],
     };
@@ -98,23 +98,23 @@ class App extends Component {
   };
 
   async getAllComments() {
-    const { videoId } = this.state;
+    //const { videoId } = this.state;
     const response = await axios.get(`http://127.0.0.1:8000/comment/`);
-    const comments = response.data.filter((comment) => comment.video_ID === videoId);
+    const comments = response.data.filter((comment) => comment.video_ID === this.state.videoInfo.id.videoId);
     this.setState({
       comments: comments,
     });
   }
 
   componentDidMount() {
-    // this.getAllComments();
-    // this.getAllReplies();
+    this.getAllComments();
+    this.getAllReplies();
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
       const {videoId} = this.state
 
-      if (videoId !== prevState.videoId) {
+      if (videoId !== prevState.videoInfo.id.videoId) {
         this.getAllComments();
         this.getAllReplies();
       }
@@ -179,12 +179,12 @@ class App extends Component {
             <div className="row">
               <div className="col sidebar1 w-auto p-3">
               <CommentForm
-                videoId={this.state.videoId}
+                videoId={this.state.videoInfo.id.videoId}
                 addComment={this.addComment}
               />
               </div>
               <div className="col-md-7 border1">
-                {this.state.videoId.length > 0  && (
+                {this.state.videoInfo.id.videoId.length > 0  && (
                   <div>
                     <DisplayVideo
                      
@@ -194,7 +194,7 @@ class App extends Component {
                 )}
               </div>
               <div className="col sidebar1">
-                {this.state.videoId && (
+                {this.state.videoInfo.id.videoId && (
                   <div className="align=center">
                     {this.state.related_videos.length > 0 && (
                       <RelatedVideoThumbnails
