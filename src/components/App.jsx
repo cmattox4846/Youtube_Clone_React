@@ -51,7 +51,184 @@ class App extends Component {
           },
         },
       
-      related_videos: [],
+      related_videos: [
+        {
+          "kind": "youtube#searchResult",
+          "etag": "H0uHUXp1O75N-ZOoxmvJp09lntk",
+          "id": {
+              "kind": "youtube#video",
+              "videoId": "pnukQDQdKbc"
+          },
+          "snippet": {
+              "publishedAt": "2021-06-11T16:40:53Z",
+              "channelId": "UC-bFgwL_kFKLZA60AiB-CCQ",
+              "title": "Watch THIS Before Choosing A Coding Bootcamp",
+              "description": "The first 1,000 people to click the link will get a free career coaching session with a Career Karma coach: https://ck.chat/bukola-061321\n\nIn this video, I'll be sharing 5 things to consider before choosing a Coding Bootcamp.\n\nLET'S BE FRIENDS (IG)\nhttps://www.instagram.com/bukola.dev/\n\n► VIDEO RESOURCES\nhttps://insights.stackoverflow.com/survey/2020\nhttps://cirr.org/data\n\n► Music\nhttps://www.epidemicsound.com/referral/t1k1c6/\nhttps://artlist.io/Bukola-1928571\n► Desk Equipment\nhttps://kit.co/TheComeUp/desk-equipment\n► Filming Equipment\nhttps://kit.co/TheComeUp/filming-gear\n► Programming Video\nhttps://kit.co/TheComeUp/programming-books\n\n📒 Timestamps 📒\n0:00 - Intro\n0:40 - Student Outcomes\n2:02 - Get Alumni Reviews\n2:58 - Sponsorship\n4:09 - Check The Curriculum\n5:03 - Understand The Cost\n5:40 - Teachers & Teaching Style\n\nBUSINESS INQUIRIES\nmgmt@bukola.dev",
+              "thumbnails": {
+                  "default": {
+                      "url": "https://i.ytimg.com/vi/pnukQDQdKbc/default.jpg",
+                      "width": 120,
+                      "height": 90
+                  },
+                  "medium": {
+                      "url": "https://i.ytimg.com/vi/pnukQDQdKbc/mqdefault.jpg",
+                      "width": 320,
+                      "height": 180
+                  },
+                  "high": {
+                      "url": "https://i.ytimg.com/vi/pnukQDQdKbc/hqdefault.jpg",
+                      "width": 480,
+                      "height": 360
+                  },
+                  "standard": {
+                      "url": "https://i.ytimg.com/vi/pnukQDQdKbc/sddefault.jpg",
+                      "width": 640,
+                      "height": 480
+                  },
+                  "maxres": {
+                      "url": "https://i.ytimg.com/vi/pnukQDQdKbc/maxresdefault.jpg",
+                      "width": 1280,
+                      "height": 720
+                  }
+              },
+              "channelTitle": "Bukola",
+              "liveBroadcastContent": "none",
+              "publishTime": "2021-06-11T16:40:53Z"
+          }
+      },
+      {
+          "kind": "youtube#searchResult",
+          "etag": "HhfkOmUcLMUGv_6gQIxuV1JIifQ",
+          "id": {
+              "kind": "youtube#video",
+              "videoId": "fZcYMQG3FBI"
+          },
+          "snippet": {
+              "publishedAt": "2017-09-06T19:01:07Z",
+              "channelId": "UCx46mDniih3SxOObkibtQ2w",
+              "title": "devCodeCamp",
+              "description": "devCodeCamp is Milwaukee's Proven Software Development Bootcamp. We turn beginners into Software Developers in 12 immersive weeks.",
+              "thumbnails": {
+                  "default": {
+                      "url": "https://i.ytimg.com/vi/fZcYMQG3FBI/default.jpg",
+                      "width": 120,
+                      "height": 90
+                  },
+                  "medium": {
+                      "url": "https://i.ytimg.com/vi/fZcYMQG3FBI/mqdefault.jpg",
+                      "width": 320,
+                      "height": 180
+                  },
+                  "high": {
+                      "url": "https://i.ytimg.com/vi/fZcYMQG3FBI/hqdefault.jpg",
+                      "width": 480,
+                      "height": 360
+                  },
+                  "standard": {
+                      "url": "https://i.ytimg.com/vi/fZcYMQG3FBI/sddefault.jpg",
+                      "width": 640,
+                      "height": 480
+                  },
+                  "maxres": {
+                      "url": "https://i.ytimg.com/vi/fZcYMQG3FBI/maxresdefault.jpg",
+                      "width": 1280,
+                      "height": 720
+                  }
+              },
+              "channelTitle": "devCodeCamp",
+              "liveBroadcastContent": "none",
+              "publishTime": "2017-09-06T19:01:07Z"
+          }
+      },
+      {
+          "kind": "youtube#searchResult",
+          "etag": "Z0rvbZN5BS8Cw5GgkR371Wu7usY",
+          "id": {
+              "kind": "youtube#video",
+              "videoId": "jvaSmi1Dgkc"
+          },
+          "snippet": {
+              "publishedAt": "2020-12-05T08:30:46Z",
+              "channelId": "UCAShOI6mAA7bGd47E61-U7g",
+              "title": "Why I got fired from my first two jr. developer jobs - Life after a coding bootcamp",
+              "description": "Have questions about starting a web design business or questions about a coding bootcamp?\n\nReach out to me through my website! \nhttps://www.joewebbdesigns.com/links\n\n\n📚 Favorite tools for web design: 📚\n*Note: I got an affiliate link for Webflow. Consider using this link if you enjoy their service as much as I do!\n\nWebflow -  https://webflow.grsm.io/ydxtv8c0cloj\nFigma - figma.com\nCanva - canva.com\nDribbble - dribbble.com\n\nSubscribe to my channel! ❤️\nhttps://www.youtube.com/channel/UCAShOI6mAA7bGd47E61-U7g\n\nVideo Description:\n\nThis is essentially part 2 to my video about me getting fired. I had so many ask me WHY. I hope this video clarifies a little bit about my experience.\n\nWatch part 1 here: https://youtu.be/3BhHIK8vcBs\n\nMy only affiliate link:\nBuild better looking websites: https://webflow.grsm.io/ydxtv8c0cloj",
+              "thumbnails": {
+                  "default": {
+                      "url": "https://i.ytimg.com/vi/jvaSmi1Dgkc/default.jpg",
+                      "width": 120,
+                      "height": 90
+                  },
+                  "medium": {
+                      "url": "https://i.ytimg.com/vi/jvaSmi1Dgkc/mqdefault.jpg",
+                      "width": 320,
+                      "height": 180
+                  },
+                  "high": {
+                      "url": "https://i.ytimg.com/vi/jvaSmi1Dgkc/hqdefault.jpg",
+                      "width": 480,
+                      "height": 360
+                  },
+                  "standard": {
+                      "url": "https://i.ytimg.com/vi/jvaSmi1Dgkc/sddefault.jpg",
+                      "width": 640,
+                      "height": 480
+                  },
+                  "maxres": {
+                      "url": "https://i.ytimg.com/vi/jvaSmi1Dgkc/maxresdefault.jpg",
+                      "width": 1280,
+                      "height": 720
+                  }
+              },
+              "channelTitle": "Joe Webb",
+              "liveBroadcastContent": "none",
+              "publishTime": "2020-12-05T08:30:46Z"
+          }
+      },
+      {
+          "kind": "youtube#searchResult",
+          "etag": "zm_SklZC1Hkt-RdpJ11Y5IrzLHc",
+          "id": {
+              "kind": "youtube#video",
+              "videoId": "LdN8MGn-Irs"
+          },
+          "snippet": {
+              "publishedAt": "2020-12-04T22:34:38Z",
+              "channelId": "UC0MuuZyet6I4OPlqHLaEGaA",
+              "title": "One Year After Coding Bootcamp | Did I Get A Job?",
+              "description": "Hey everyone in this video, I chat up with you about how it's been since I graduated from Fullstack Academy, my journey since then, and what I am up to now! It's been  one year after coding bootcamp and I hope this video gives you insight on what it's like to go through this process, and what you can do to have a better experience then mine.",
+              "thumbnails": {
+                  "default": {
+                      "url": "https://i.ytimg.com/vi/LdN8MGn-Irs/default.jpg",
+                      "width": 120,
+                      "height": 90
+                  },
+                  "medium": {
+                      "url": "https://i.ytimg.com/vi/LdN8MGn-Irs/mqdefault.jpg",
+                      "width": 320,
+                      "height": 180
+                  },
+                  "high": {
+                      "url": "https://i.ytimg.com/vi/LdN8MGn-Irs/hqdefault.jpg",
+                      "width": 480,
+                      "height": 360
+                  },
+                  "standard": {
+                      "url": "https://i.ytimg.com/vi/LdN8MGn-Irs/sddefault.jpg",
+                      "width": 640,
+                      "height": 480
+                  },
+                  "maxres": {
+                      "url": "https://i.ytimg.com/vi/LdN8MGn-Irs/maxresdefault.jpg",
+                      "width": 1280,
+                      "height": 720
+                  }
+              },
+              "channelTitle": "KemiNaturally",
+              "liveBroadcastContent": "none",
+              "publishTime": "2020-12-04T22:34:38Z"
+          }
+      },
+      ],
       videoId:"Kp3-pXoDoIw",
       filteredComments: [],
       replies: [],
@@ -168,13 +345,13 @@ class App extends Component {
                   
           <div className="container-fluid w-200">
             <div className="row">
-              <div className="col sidebar1 w-auto p-3 d-flex align-items-basline">
+              <div className="col sidebar1 w-auto p-3 d-flex-align-items-basline">
               <CommentForm
                 videoId={this.state.videoInfo.id.videoId}
                 addComment={this.addComment}
               />
               </div>
-              <div className="col-md-7 text-center ">
+              <div className="col-md-7 text-center">
                 {this.state.videoInfo.id.videoId.length > 0  && (
                   <div className="mainVideo">
                     <DisplayVideo
@@ -186,13 +363,13 @@ class App extends Component {
               </div>
               <div className="col sidebar1">
                 {this.state.videoInfo.id.videoId && (
-                  <div className="align=center">
-                    {this.state.related_videos.length > 0 && (
+                  <div>
+                    {/* {this.state.related_videos.length > 0 && ( */}
                       <RelatedVideoThumbnails
                         related_videos={this.state.related_videos}
                         setVideoId={this.setVideo}
                       />
-                    )}
+                    {/* )} */}
                   </div>
                 )}
               </div>

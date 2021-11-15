@@ -12,15 +12,11 @@ class DisplayVideo extends Component {
     return (
       
         <div>
-            <h5>{this.props.video.snippet.title}</h5>
-            {console.log('this is the title')}
-            {console.log(this.props.video.snippet.title)} 
-            <p>{this.props.video.snippet.description}</p>
-            {console.log('this is the description')}
-            {console.log(this.props.video.snippet.description)}
+            
               <iframe
                 id="ytplayer"
                 type="text/html"
+                
                 width="640"
                 height="360"
                 title="YouTube Video"
@@ -29,6 +25,12 @@ class DisplayVideo extends Component {
             >
 
             </iframe>
+            <h5>{this.props.video.snippet.title}</h5>
+            {console.log('this is the title')}
+            {console.log(this.props.video.snippet.title)} 
+            <p>{this.props.video.snippet.description}</p>
+            {console.log('this is the description')}
+            {console.log(this.props.video.snippet.description)}
             
         </div>
       
