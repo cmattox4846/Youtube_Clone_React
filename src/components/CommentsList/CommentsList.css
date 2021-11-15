@@ -12,10 +12,10 @@ table, td, th, tr, thead {
     
   }
 
-/* .replies {
-    position: relative;
-    left: 50px;
-} */
+.replies {
+    display: table;
+    width: 100%;
+}
 
 .border{
   border-width: 5;

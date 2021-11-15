@@ -275,7 +275,7 @@ class App extends Component {
   };
 
   async getAllComments() {
-    //const { videoId } = this.state;
+    // const { videoId } = this.state;
     const response = await axios.get(`http://127.0.0.1:8000/comment/`);
     const comments = response.data.filter((comment) => comment.video_ID === this.state.videoInfo.id.videoId);
     this.setState({
