@@ -12,10 +12,10 @@ class DisplayVideo extends Component {
     return (
       
         <div>
-            <h1>{this.props.video.snippet.title}</h1>
+            <h5>{this.props.video.snippet.title}</h5>
             {console.log('this is the title')}
             {console.log(this.props.video.snippet.title)} 
-            <h4>{this.props.video.snippet.description}</h4>
+            <p>{this.props.video.snippet.description}</p>
             {console.log('this is the description')}
             {console.log(this.props.video.snippet.description)}
               <iframe
