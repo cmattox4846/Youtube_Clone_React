@@ -10,7 +10,7 @@ const CommentsList = (props) => {
     
   return (
     
-          <table className="CommentsList">
+          <table className="CommentsList border">
             <thead>
               <tr>
                 <th> Comments </th>

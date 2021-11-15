@@ -111,10 +111,10 @@ class App extends Component {
     this.getAllReplies();
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-      const {videoId} = this.state
+  componentDidUpdate(prevProps,prevState) {
+      
 
-      if (videoId !== prevState.videoInfo.id.videoId) {
+      if (this.state.videoInfo.id.videoId !== prevState.videoInfo.id.videoId) {
         this.getAllComments();
         this.getAllReplies();
       }
@@ -196,16 +196,17 @@ class App extends Component {
                   </div>
                 )}
               </div>
-              
+             
               <br></br>
-              <CommentsList
-                comments={this.state.comments}
-                videoId={this.state.videoId}
-                addLike={this.addLike}
-                addDislike={this.addDislike}
-                replies={this.state.replies}
-                getAllReplies={this.getAllReplies}
-              />
+                <CommentsList
+                  comments={this.state.comments}
+                  videoId={this.state.videoId}
+                  addLike={this.addLike}
+                  addDislike={this.addDislike}
+                  replies={this.state.replies}
+                  getAllReplies={this.getAllReplies}
+                />
+              
             </div>
           </div>
         </div>

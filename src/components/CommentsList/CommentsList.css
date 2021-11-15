@@ -4,11 +4,11 @@ th {
   }
   
 table, td, th, tr, thead {
-    border: 3px solid black;
+    
     text-align: center;
     padding: 5px;
     font-family: 'Times New Roman', Times, serif;
-    border-collapse: initial;
+    /* border-collapse: initial; */
     
   }
 
@@ -17,6 +17,12 @@ table, td, th, tr, thead {
     width: 100%;
 }
 
+.border{
+  border-width: 5;
+    border-color:black solid;
+    border-style: groove;
+    
+}
 
 
 /* .CommentsList {
