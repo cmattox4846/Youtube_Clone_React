@@ -52,7 +52,7 @@ class App extends Component {
         },
       
       related_videos: [],
-      //videoId:"Kp3-pXoDoIw",
+      videoId:"Kp3-pXoDoIw",
       filteredComments: [],
       replies: [],
     };
@@ -148,44 +148,35 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div className="container-fluid ">
-          <nav class="navbar navbar-expand-lg sidebar1">
-            <div class="container bd-highlight">
-              <div className="row">
-                <span class="navbar-brand mb-0 h1">Youtube Clone</span>
-                <button
-                  class="navbar-toggler"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#navbarNavAltMarkup"
-                  aria-controls="navbarNavAltMarkup"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                >
-                  <span class="navbar-toggler-icon">My Button</span>
-                </button>
-                <div class="navbar-nav">
-                  <span class="navbar-brand mb-0 h1">
-                    <SearchBar
-                      search_term={this.SearchForVideo}
-                      related_videos={this.SearchForRealatedVideo}
-                    />
-                  </span>
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a href="#" class="navbar-brand">Youtube Clone</a>
+                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        
+                        <div class="navbar-nav ms-auto">
+                        <SearchBar
+                                  search_term={this.SearchForVideo}
+                                  related_videos={this.SearchForRealatedVideo}
+                                />
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </nav>
+            </nav>
+                  
           <div className="container-fluid w-200">
             <div className="row">
-              <div className="col sidebar1 w-auto p-3">
+              <div className="col sidebar1 w-auto p-3 d-flex align-items-basline">
               <CommentForm
                 videoId={this.state.videoInfo.id.videoId}
                 addComment={this.addComment}
               />
               </div>
-              <div className="col-md-7 border1">
+              <div className="col-md-7 text-center ">
                 {this.state.videoInfo.id.videoId.length > 0  && (
-                  <div>
+                  <div className="mainVideo">
                     <DisplayVideo
                      
                       video={this.state.videoInfo}
@@ -218,7 +209,7 @@ class App extends Component {
             </div>
           </div>
         </div>
-      </div>
+      
     );
   }
 }
